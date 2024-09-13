@@ -7,12 +7,12 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     @Test
-    public void testIncreasingRadioBy1() {
+    public void testNextRadio() {
         Radio cond = new Radio();
 
         cond.setCurrentRadio(7);
 
-        cond.increaseRadio();
+        cond.nextRadio();
         int expected = 8;
         int actual = cond.getCurrentRadio();
 
@@ -20,12 +20,12 @@ public class RadioTest {
     }
 
     @Test
-    public void testReducingRadioBy1() {
+    public void testPrevRadio() {
         Radio cond = new Radio();
 
         cond.setCurrentRadio(7);
 
-        cond.reduceRadio();
+        cond.prevRadio();
         int expected = 6;
         int actual = cond.getCurrentRadio();
 
@@ -33,12 +33,12 @@ public class RadioTest {
     }
 
     @Test
-    public void testIncreasingMaxRadio() {
+    public void testNextMaxRadio() {
         Radio cond = new Radio();
 
         cond.setCurrentRadio(9);
 
-        cond.increaseRadio();
+        cond.nextRadio();
         int expected = 0;
         int actual = cond.getCurrentRadio();
 
@@ -46,18 +46,103 @@ public class RadioTest {
     }
 
     @Test
-    public void testReducingMinRadio() {
+    public void testPrevMinRadio() {
         Radio cond = new Radio();
 
         cond.setCurrentRadio(0);
 
-        cond.reduceRadio();
+        cond.prevRadio();
         int expected = 9;
         int actual = cond.getCurrentRadio();
 
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testChoiceRadio0() {
+        Radio cond = new Radio();
+
+        cond.setCurrentRadio(0);
+
+        int expected = 0;
+        int actual = cond.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testChoiceRadio1() {
+        Radio cond = new Radio();
+
+        cond.setCurrentRadio(1);
+
+        int expected = 1;
+        int actual = cond.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testChoiceRadio4() {
+        Radio cond = new Radio();
+
+        cond.setCurrentRadio(4);
+
+        int expected = 4;
+        int actual = cond.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testChoiceRadio8() {
+        Radio cond = new Radio();
+
+        cond.setCurrentRadio(8);
+
+        int expected = 8;
+        int actual = cond.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testChoiceRadio9() {
+        Radio cond = new Radio();
+
+        cond.setCurrentRadio(9);
+
+        int expected = 9;
+        int actual = cond.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testChoiceRadioMore9() {
+        Radio cond = new Radio();
+
+        cond.setCurrentRadio(10);
+
+        int expected = 0;
+        int actual = cond.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testChoiceRadioLess0() {
+        Radio cond = new Radio();
+
+        cond.setCurrentRadio(-1);
+
+        int expected = 0;
+        int actual = cond.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Test
     public void testIncreasingVolumeBy1() {
         Radio cond = new Radio();
