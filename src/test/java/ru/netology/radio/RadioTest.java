@@ -208,7 +208,6 @@ public class RadioTest {
 
     @Test
     public void testReducingVolumeBy1() {
-        Radio cond = new Radio();
         condVolume.setCurrentVolume(10);
         condVolume.reduceVolume();
         int expected = 9;
@@ -218,7 +217,6 @@ public class RadioTest {
 
     @Test
     public void testIncreasingMaxVolume() {
-        Radio cond = new Radio();
         condVolume.setCurrentVolume(100);
         condVolume.increaseVolume();
         int expected = 100;
@@ -228,7 +226,6 @@ public class RadioTest {
 
     @Test
     public void testReducingMinVolume() {
-        Radio cond = new Radio();
         condVolume.setCurrentVolume(0);
         condVolume.reduceVolume();
         int expected = 0;
