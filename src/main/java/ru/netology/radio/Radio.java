@@ -1,83 +1,70 @@
 package ru.netology.radio;
 
 public class Radio {
+    /// поля//
     private int currentRadio;
+    private int currentVolume;
 
+    /// конструкторы//
+    public void nextRadio() {
+        if (currentRadio != 9) {
+            currentRadio++;
+        } else {
+            currentRadio = 0;
+        }
+    }
+
+    public void prevRadio() {
+        if (currentRadio != 0) {
+            currentRadio--;
+        } else {
+            currentRadio = 9;
+        }
+    }
+
+    public void increaseVolume() {
+        if (currentVolume != 100) {
+            currentVolume++;
+//        } else {
+//            currentVolume = 100;
+        }
+    }
+
+    public void reduceVolume() {
+        if (currentVolume != 0) {
+            currentVolume--;
+//        } else {
+//            currentVolume = 0;
+        }
+    }
+
+    /// методы///
     public int getCurrentRadio() {
         return currentRadio;
     }
 
-
-    public void setCurrentRadio(int newCurrentRadio) {
-        if (newCurrentRadio < 0) {
+    public void setCurrentRadio(int currentRadio) {
+        if (currentRadio < 0) {
             return;
         }
-        if (newCurrentRadio > 9) {
+        if (currentRadio > 9) {
             return;
         }
-        currentRadio = newCurrentRadio;
+        this.currentRadio = currentRadio;
     }
-
-
-    public void nextRadio() {
-        if (currentRadio < 9) {
-            currentRadio = currentRadio + 1;
-        }
-        if (currentRadio >= 9) {
-            currentRadio = 0;
-        }
-        setCurrentRadio(currentRadio);
-    }
-
-    public void prevRadio() {
-        if (currentRadio > 0) {
-            currentRadio = currentRadio - 1;
-        }
-        if (currentRadio <= 0) {
-            currentRadio = 9;
-        }
-        setCurrentRadio(currentRadio);
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private int currentVolume;
 
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int newCurrentVolume) {
-//            if (newCurrentVolume < 0) {
-//                return;
-//            }
-//            if (newCurrentVolume > 100) {
-//                return;
-//            }
-        currentVolume = newCurrentVolume;
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < 0) {
+            return;
+        }
+        if (currentVolume > 100) {
+            return;
+        }
+        this.currentVolume = currentVolume;
     }
 
-
-    public void increaseVolume() {
-        if (currentVolume < 100) {
-            currentVolume = currentVolume + 1;
-        }
-        if (currentVolume >= 100) {
-            currentVolume = 100;
-        }
-        setCurrentVolume(currentVolume);
-    }
-
-    public void reduceVolume() {
-        if (currentVolume > 0) {
-            currentVolume = currentVolume - 1;
-        }
-        if (currentVolume <= 0) {
-            currentVolume = 0;
-        }
-        setCurrentVolume(currentVolume);
-    }
 }
-
-
-
-
